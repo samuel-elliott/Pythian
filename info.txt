@@ -1,0 +1,5 @@
+Sam Elliott
+Monday, 11 July 2016
+
+Tested with Vagrant 1.8.4.
+No extra plugins required.

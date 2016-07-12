@@ -1,0 +1,31 @@
+check_ip.py explanation
+Sam Elliott
+Monday, 11 July 2016
+
+The script in question has been tested on 2.7.6 on the provided Ubuntu 14.04.4 LTS Vagrant box.
+
+It's set to UTF-8 format because, due to past work with video editing and subtitles with non-Roman
+characters, I use UTF-8 with everything.
+
+First, it obviously imports necessary Python modules in order to function properly, such as urllib2 for directly querying HTTP URLs.
+
+Next, it obtains the current date and time in a format that I find to both have all necessary data and be aesthetically pleasing. It then stores the
+data in the variable datetimestamp
+
+Next, the specified URL is stored as checkip.dyndns.org
+
+Next, the URL in question is opened for reading with the urllib2.urlopen module
+
+It then goes through a "Try -> Except" block to handle two exceptions I encountered while writing this script:
+1. A timeout error due to network congestion, server load, who knows.
+2. Receiving an unknown HTTP error.
+
+Afterwards, the response goes through regex filtering to get just the IP address.
+
+As it stands, the IP address is surrounded by angle brackets "[]" and single quotes "''". It looks ugly.
+Pass it through join to get rid of that unwanted detritus, reusing the same variable as there is no need to create another one.
+
+We are nearing completion. Open /home/vagrant/dyndns.log in append mode. Append mode so it can be added to; if opened in write
+mode, it will be overwriten.
+Write the date/time stamp and the resulting IP address in the requested format.
+Close the file to avoid anything like data loss. And it's just common sense.
